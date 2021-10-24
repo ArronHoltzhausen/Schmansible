@@ -22,7 +22,7 @@ namespace Schmansible
 
         public IConfiguration Configuration { get; }
         /// <summary>
-        /// /a
+        /// /aasd
         /// </summary>
         /// <param name="services"></param>
         // This method gets called by the runtime. Use this method to add services to the container.
