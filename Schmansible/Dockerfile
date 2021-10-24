@@ -1,11 +1,11 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-FROM mcr.microsoft.com/dotnet/aspnet:3.1.20-bullseye-slim-arm64v8, 3.1-bullseye-slim-arm64v8 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:3.1.20-bullseye-slim-arm64v8 AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/sdk:3.1.20-bullseye-slim-arm64v8, 3.1-bullseye-slim-arm64v8 AS build
+FROM mcr.microsoft.com/dotnet/sdk:3.1.414-bullseye-arm64v8 AS build
 WORKDIR /src
 COPY ["Schmansible/Schmansible.csproj", "Schmansible/"]
 RUN dotnet restore "Schmansible/Schmansible.csproj"
