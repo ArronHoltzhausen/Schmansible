@@ -1,0 +1,40 @@
+﻿@page "/playbookview"
+@using Schmansible.Models;
+@using Schmansible.component;
+@using Schmansible.Services
+@inject PlayBookService playbookService
+
+<div class="text-center"><h3>Playbooks</h3></div>
+<div class="col-12">
+
+    @foreach (var item in playbooks)
+    {
+    
+        <div class="col-3 float-left" style="margin-bottom:2%">
+            <Item ItemId="@item.Id"
+                  ItemName="@item.Name"
+                  ItemDescription="@item.Description"
+                  ItemService="@playbookService">
+            </Item>
+        </div>
+   
+    }
+        
+    </div>
+    @code {
+        List<PlayBook> playbooks = new List<PlayBook>()
+        {
+            new PlayBook(){  Id = 1, Name = "test1", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
+            new PlayBook(){  Id = 2, Name = "test2", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
+            new PlayBook(){  Id = 3, Name = "test3", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
+            new PlayBook(){  Id = 4, Name = "test4", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
+            new PlayBook(){  Id = 5, Name = "test5", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
+            new PlayBook(){  Id = 6, Name = "test6", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
+            new PlayBook(){  Id = 7, Name = "test7", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
+            new PlayBook(){  Id = 8, Name = "test8", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
+            new PlayBook(){  Id = 9, Name = "test9", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
+            new PlayBook(){  Id = 10, Name = "test10", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
+            new PlayBook(){  Id = 11, Name = "test11", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
+            new PlayBook(){  Id = 12, Name = "test12", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
+        };
+    }

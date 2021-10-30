@@ -5,7 +5,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Schmansible.abstractions;
 using Schmansible.Data;
+using Schmansible.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +34,8 @@ namespace Schmansible
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+            services.AddSingleton<PlayBookService>();
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

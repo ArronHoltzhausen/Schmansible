@@ -1,0 +1,43 @@
+﻿@using Schmansible.abstractions
+<div class="card">
+    <h3 class="text-center">@ItemName</h3>
+    
+    <div class="card-body">
+        <ul>
+            <li>@ItemId</li>
+            <li>@ItemDescription</li>
+            <li></li>
+        </ul>
+    </div>
+
+    <div class="card-footer">
+        <div class="col-md-3 float-left">
+            <button @onclick="onEdit">Edit</button>
+        </div>
+        <div class="col-md-3 float-left">
+            <button class="alert-danger" @onclick="onDelete">Delete</button>
+        </div>
+    </div>
+
+</div>
+
+@code {
+    [Parameter]
+    public int ItemId { get; set; }
+    [Parameter]
+    public string ItemName { get; set; } = string.Empty;
+    [Parameter]
+    public string ItemDescription { get; set; } = string.Empty;
+    [Parameter]
+    public IItemService ItemService { get; set; } 
+
+    void onDelete()
+    {
+        string result = ItemService.DeleteItem(ItemId);
+    }
+
+    void onEdit()
+    {
+        string result = ItemService.UpdateItem(ItemId);
+    }
+}
