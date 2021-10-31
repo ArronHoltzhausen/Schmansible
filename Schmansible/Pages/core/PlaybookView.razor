@@ -1,6 +1,6 @@
 ﻿@page "/playbookview"
 @using Schmansible.Models;
-@using Schmansible.component;
+@using Schmansible.Component;
 @using Schmansible.Services
 @inject PlayBookService playbookService
 
@@ -10,7 +10,7 @@
     @foreach (var item in playbooks)
     {
     
-        <div class="col-3 float-left" style="margin-bottom:2%">
+        <div class="col-4 float-left" style="margin-bottom:2%">
             <Item ItemId="@item.Id"
                   ItemName="@item.Name"
                   ItemDescription="@item.Description"

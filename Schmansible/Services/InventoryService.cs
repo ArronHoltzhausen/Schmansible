@@ -1,12 +1,11 @@
 ﻿using Schmansible.Abstractions;
 using System;
-using System.Threading.Tasks;
 
 namespace Schmansible.Services
 {
-    public class PlayBookService : IItemService
+    public class InventoryService : IItemService
     {
-        public PlayBookService()
+        public InventoryService()
         {
         }
 

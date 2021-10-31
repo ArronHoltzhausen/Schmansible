@@ -1,4 +1,4 @@
-﻿namespace Schmansible.abstractions
+﻿namespace Schmansible.Abstractions
 {
     public interface IItemService
     {
