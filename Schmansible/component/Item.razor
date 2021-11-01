@@ -1,4 +1,4 @@
-﻿@using Schmansible.Abstractions
+﻿@using Schmansible.Component
 <div class="card">
     <h3 class="text-center">@ItemName</h3>
     
@@ -29,15 +29,17 @@
     [Parameter]
     public string ItemDescription { get; set; } = string.Empty;
     [Parameter]
-    public IItemService ItemService { get; set; } 
+    public string ItemLocation { get; set; } = string.Empty;
+    [Parameter]
+    public IItemService ItemService { get; set; }
 
     void onDelete()
     {
-        string result = ItemService.DeleteItem(ItemId);
+        ItemService.DeleteItem(ItemLocation);
     }
 
     void onEdit()
     {
-        string result = ItemService.UpdateItem(ItemId);
+        //ItemService.UpdateItem(ItemId);
     }
 }

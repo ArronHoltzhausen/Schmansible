@@ -2,7 +2,7 @@
 {
     public interface IItemService
     {
-        string UpdateItem(int itemId);
-        string DeleteItem(int itemId);
+        string UpdateItem(string path, string contents);
+        bool DeleteItem(string path);
     }
 }

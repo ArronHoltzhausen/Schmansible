@@ -1,7 +1,24 @@
 ﻿@page "/"
-
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?" />
+    <div class="col-12">
+        <div class="col-6 float-left">
+            <div class="card" style="margin-top:15%">
+                <h3 class="text-center">
+                    Welcome to Schmansible!
+                </h3>
+                <div class="card-body">
+                    This is a tool to manage ansible jobs via a web interface
+                    <ul>
+                        <li>Jobs:  are preconfigured combinations are playbooks and inventory files</li>
+                        <li>Playbooks: these are normal .yaml ansible playbooks</li>
+                        <li>Inventories: these are normal host files that you would parse into ansible</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    Please praise the automation wizards
+                </div>
+            </div>
+        </div>
+        <div class="col-6 float-left">
+            <image src="images/gir_mascot.png" style="width:50%"></image>
+        </div>
+    </div>

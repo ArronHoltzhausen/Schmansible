@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Schmansible.Abstractions;
 using Schmansible.Services;
+using Schmansible.Services.IO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,8 @@ namespace Schmansible
             services.AddServerSideBlazor();
             services.AddSingleton<PlayBookService>();
             services.AddSingleton<InventoryService>();
+            services.AddSingleton<JobService>();
+            services.AddSingleton<IFileService, FileService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

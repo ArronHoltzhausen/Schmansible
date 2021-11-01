@@ -1,38 +1,45 @@
 ﻿@page "/inventoryview"
 @using Schmansible.Models;
 @using Schmansible.Component;
-@using Schmansible.Services
+@using Schmansible.Services;
 @inject InventoryService inventoryService
 
 <div class="text-center"><h3>Inventory</h3></div>
 <div class="col-12">
 
-    @foreach (var item in playbooks)
+    @foreach (var item in inventories)
     {
         <div class="col-4 float-left" style="margin-bottom:2%">
             <Item ItemId="@item.Id"
                   ItemName="@item.Name"
                   ItemDescription="@item.Description"
-                  ItemService="@inventoryService">
+                  ItemService="@inventoryService"
+                  ItemLocation="@item.Location">
             </Item>
         </div>
     }
-        
-    </div>
-    @code {
-        List<Inventory> playbooks = new List<Inventory>()
-        {
-            new Inventory(){  Id = 1, Name = "test1", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
-            new Inventory(){  Id = 2, Name = "test2", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
-            new Inventory(){  Id = 3, Name = "test3", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
-            new Inventory(){  Id = 4, Name = "test4", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
-            new Inventory(){  Id = 5, Name = "test5", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
-            new Inventory(){  Id = 6, Name = "test6", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
-            new Inventory(){  Id = 7, Name = "test7", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
-            new Inventory(){  Id = 8, Name = "test8", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
-            new Inventory(){  Id = 9, Name = "test9", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
-            new Inventory(){  Id = 10, Name = "test10", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
-            new Inventory(){  Id = 11, Name = "test11", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
-            new Inventory(){  Id = 12, Name = "test12", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
-        };
+
+</div>
+@code {
+    List<Inventory> inventories;
+    //    = new List<Inventory>()
+    //{
+    //    new Inventory(){  Id = 1, Name = "test1", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
+    //    new Inventory(){  Id = 2, Name = "test2", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
+    //    new Inventory(){  Id = 3, Name = "test3", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
+    //    new Inventory(){  Id = 4, Name = "test4", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
+    //    new Inventory(){  Id = 5, Name = "test5", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
+    //    new Inventory(){  Id = 6, Name = "test6", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
+    //    new Inventory(){  Id = 7, Name = "test7", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
+    //    new Inventory(){  Id = 8, Name = "test8", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
+    //    new Inventory(){  Id = 9, Name = "test9", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
+    //    new Inventory(){  Id = 10, Name = "test10", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
+    //    new Inventory(){  Id = 11, Name = "test11", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
+    //    new Inventory(){  Id = 12, Name = "test12", Description = "Lorem ipsum some bs storyb about a fox that fucked a cat"   },
+    //};
+
+    protected override void OnInitialized()
+    {
+        inventories = inventoryService.GetInventories();
     }
+}

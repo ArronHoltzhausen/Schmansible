@@ -12,4 +12,10 @@
     <PackageReference Include="MongoDB.Driver" Version="2.13.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="wwwroot\images\gir_mascot.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
