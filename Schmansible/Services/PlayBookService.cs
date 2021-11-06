@@ -32,7 +32,7 @@ namespace Schmansible.Services
         {
             List<PlayBook> lPlayBook = new List<PlayBook>();
             var results = _fileService.GetFiles(path);
-            if (results.Count == 0) return lPlayBook;
+            if (results == null || results.Count == 0) return lPlayBook;
             foreach (var item in results)
             {
                 lPlayBook.Add(new PlayBook()

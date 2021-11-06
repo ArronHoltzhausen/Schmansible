@@ -33,7 +33,7 @@ namespace Schmansible.Services
         {
             List<Inventory> lInv = new List<Inventory>();
             var results = _fileService.GetFiles(path);
-            if (results.Count == 0) return lInv;
+            if (results == null || results.Count == 0) return lInv;
             foreach(var item in results)
             {
                 lInv.Add(new Inventory()
