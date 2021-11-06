@@ -18,6 +18,10 @@
             </Item>
         </div>
     }
+    @if (inventories.Count == 0)
+    {
+       <BuggerNothing></BuggerNothing>
+    }
 
 </div>
 @code {
