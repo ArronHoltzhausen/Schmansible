@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Schmansible.Abstractions;
 using Schmansible.Models;
 using Schmansible.Services.IO;
@@ -11,11 +12,14 @@ namespace Schmansible.Services
     {
         private readonly IFileService _fileService;
         private readonly ILogger _logger;
+        private readonly Settings _settings;
 
         public InventoryService(IFileService fileService,
+            IOptions<Settings> settings,
             ILogger<InventoryService> logger)
         {
             _fileService = fileService;
+            _settings = settings.Value;
             _logger = logger;
         }
 
@@ -29,8 +33,9 @@ namespace Schmansible.Services
             return _fileService.UpdateFile(path, contents);
         }
 
-        public List<Inventory> GetInventories(string path = "/mnt/c/Users/arron/schman/inventories")
+        public List<Inventory> GetInventories()
         {
+            string path = $"{_settings.BaseDirectory}inventories";
             List<Inventory> lInv = new List<Inventory>();
             var results = _fileService.GetFiles(path);
             if (results == null || results.Count == 0) return lInv;

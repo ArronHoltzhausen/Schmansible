@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Schmansible.Abstractions;
+using Schmansible.Models;
 using Schmansible.Services;
 using Schmansible.Services.IO;
 using System;
@@ -33,6 +34,9 @@ namespace Schmansible
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+
+            services.Configure<Settings>(Configuration.GetSection("Settings"));
+
             services.AddSingleton<PlayBookService>();
             services.AddSingleton<InventoryService>();
             services.AddSingleton<JobService>();

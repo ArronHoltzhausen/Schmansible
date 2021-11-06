@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Schmansible.Abstractions;
 using Schmansible.Models;
 using Schmansible.Services.IO;
@@ -10,11 +11,14 @@ namespace Schmansible.Services
     {
         private readonly IFileService _fileService;
         private readonly ILogger _logger;
+        private readonly Settings _settings;
 
         public PlayBookService(IFileService fileService,
+            IOptions<Settings> settings,
             ILogger<PlayBookService> logger)
         {
             _fileService = fileService;
+            _settings = settings.Value;
             _logger = logger;
         }
 
@@ -28,8 +32,10 @@ namespace Schmansible.Services
             return _fileService.UpdateFile(path, contents);
         }
 
-        public List<PlayBook> GetPlayBooks(string path = "/mnt/c/Users/arron/schman/playbooks")
+        public List<PlayBook> GetPlayBooks()
         {
+            string path = $"{_settings.BaseDirectory}playbooks";
+
             List<PlayBook> lPlayBook = new List<PlayBook>();
             var results = _fileService.GetFiles(path);
             if (results == null || results.Count == 0) return lPlayBook;
